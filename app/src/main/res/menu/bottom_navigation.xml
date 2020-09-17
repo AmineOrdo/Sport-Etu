@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_progression"
+        android:icon="@mipmap/diagram_bottom_nav"
+        android:title="progression"/>
+
+    <item android:title="entrainement"
+        android:icon="@mipmap/dumbell_bottom_nav"
+        android:id="@+id/nav_entrainement" />
+
+    <item android:id="@+id/succès"
+        android:icon="@mipmap/trophee_bottom_nav"
+        android:title="succès"/>
+
+</menu>
