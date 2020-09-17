@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/nav_progression"
         android:icon="@mipmap/diagram_bottom_nav"
-        android:title="progression"/>
+        android:title=""/>
 
-    <item android:title="entrainement"
+    <item android:title=""
         android:icon="@mipmap/dumbell_bottom_nav"
         android:id="@+id/nav_entrainement" />
 
-    <item android:id="@+id/succes"
+    <item android:id="@+id/nav_succes"
         android:icon="@mipmap/trophee_bottom_nav"
-        android:title="succes"/>
+        android:title=""/>
 
 </menu>

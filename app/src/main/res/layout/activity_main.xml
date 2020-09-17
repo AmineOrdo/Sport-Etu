@@ -14,14 +14,15 @@
         android:id="@+id/fragment_container"
         android:layout_above="@+id/bottom_navigation"/>
 
-<com.google.android.material.bottomnavigation.BottomNavigationView
-    android:id="@+id/bottom_navigation"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    app:menu="@menu/bottom_navigation"
-    app:itemIconTint="#FFFFFF"
-    android:background="#7FC9FF"
-    app:itemIconSize="50dp"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:layout_alignParentBottom="true"
+        android:background="#7FC9FF"
+        app:itemIconSize="65dp"
+        app:itemIconTint="#FFFFFF"
+
+        app:menu="@menu/bottom_navigation" />
 
 </RelativeLayout>
