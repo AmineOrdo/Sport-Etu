@@ -8,8 +8,8 @@
         android:icon="@mipmap/dumbell_bottom_nav"
         android:id="@+id/nav_entrainement" />
 
-    <item android:id="@+id/succès"
+    <item android:id="@+id/succes"
         android:icon="@mipmap/trophee_bottom_nav"
-        android:title="succès"/>
+        android:title="succes"/>
 
 </menu>
