@@ -1,12 +1,15 @@
-package com.example.ptut_application_mobile_sportetu
+package com.example.sportetu
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    //fonctions pour la bottom navigation - interface graphique
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -19,17 +22,23 @@ class MainActivity : AppCompatActivity() {
 
         bottom_navigation.setOnNavigationItemSelectedListener{
             when (it.itemId){
-                R.id.nav_progression->makeCurrentFragment(ProgressionFragment)
-                R.id.nav_succes->makeCurrentFragment(SuccesFragment)
-                R.id.nav_entrainement->makeCurrentFragment(EntrainementFragment)
+                R.id.nav_progression ->makeCurrentFragment(ProgressionFragment)
+                R.id.nav_succes ->makeCurrentFragment(SuccesFragment)
+                R.id.nav_entrainement ->makeCurrentFragment(EntrainementFragment)
             }
             true
         }
     }
-
     private fun makeCurrentFragment(fragment: Fragment)=
         supportFragmentManager.beginTransaction().apply{
             replace(R.id.fragment_container,fragment)
             commit()
         }
+    //fonction pour le top navigation - interface graphique
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.top_navigation,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+
 }

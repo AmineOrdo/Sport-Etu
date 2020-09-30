@@ -1,4 +1,4 @@
-package com.example.ptut_application_mobile_sportetu
+package com.example.sportetu
 
 import org.junit.Test
 

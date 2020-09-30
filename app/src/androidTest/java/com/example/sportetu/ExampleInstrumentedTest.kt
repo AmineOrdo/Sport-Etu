@@ -1,4 +1,4 @@
-package com.example.ptut_application_mobile_sportetu
+package com.example.sportetu
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

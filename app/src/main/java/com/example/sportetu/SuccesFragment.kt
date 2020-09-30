@@ -1,4 +1,4 @@
-package com.example.ptut_application_mobile_sportetu
+package com.example.sportetu
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,10 +13,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [EntrainementFragment.newInstance] factory method to
+ * Use the [SuccesFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class EntrainementFragment : Fragment() {
+class SuccesFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -34,7 +34,7 @@ class EntrainementFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_entrainement, container, false)
+        return inflater.inflate(R.layout.fragment_succes, container, false)
     }
 
     companion object {
@@ -44,12 +44,12 @@ class EntrainementFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment EntrainementFragment.
+         * @return A new instance of fragment SuccesFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            EntrainementFragment().apply {
+            SuccesFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
