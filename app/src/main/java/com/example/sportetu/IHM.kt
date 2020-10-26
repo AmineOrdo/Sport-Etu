@@ -8,8 +8,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
-    //fonctions pour la bottom navigation - interface graphique
+class IHM : AppCompatActivity() {
+    //fonction pour la bottom navigation
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.fragment_container,fragment)
             commit()
         }
-    //fonction pour le top navigation - interface graphique
+    //fonction pour le top navigation
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.top_navigation,menu)
         return super.onCreateOptionsMenu(menu)

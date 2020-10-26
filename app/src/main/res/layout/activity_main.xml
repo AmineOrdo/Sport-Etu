@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CEF0FF"
-    tools:context="com.example.sportetu.MainActivity">
+    tools:context="com.example.sportetu.IHM">
 
 
     <FrameLayout
@@ -40,6 +40,16 @@
 
     />
 
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#2c367a"
+        app:itemTextColor="#ffffff"
+        app:itemIconTint="#ffffff"
+        app:menu="@menu/drawer_navigation"
+       android:layout_gravity="start"
+/>
 
 
 </RelativeLayout>
