@@ -43,7 +43,7 @@
     android:layout_height="wrap_content"
     android:background="#6693ff"
     android:elevation="4dp"
-
+    app:menu="@menu/top_navigation"
     app:title="Sport'ETU"
     app:titleTextColor="#FFFFFF"
     app:titleMarginStart="150dp"
