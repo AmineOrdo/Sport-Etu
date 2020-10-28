@@ -11,13 +11,14 @@ import android.widget.Button
 import android.widget.Toast
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class IHM : AppCompatActivity()  {
-     // bottom navigation
+     //  navigation vers les différentes pages
      override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
          setContentView(R.layout.activity_main)
@@ -30,7 +31,7 @@ class IHM : AppCompatActivity()  {
 
          makeCurrentFragment(ProgressionFragment)
 
-
+//pour ouvrir les pages en cliquant sur les boutons en bas
          bottom_navigation.setOnNavigationItemSelectedListener {
              when (it.itemId) {
                  R.id.nav_progression -> makeCurrentFragment(ProgressionFragment)
@@ -39,45 +40,30 @@ class IHM : AppCompatActivity()  {
              }
              true
          }
+         // pour ouvrir la navigation drawer en cliquant sur le bouton menu en haut
+         lateinit var drawerLayout: DrawerLayout
+         drawerLayout = findViewById(R.id.drawer_layout)
+         top_navigation.setOnMenuItemClickListener {
+             when(it.itemId){
+                 R.id.nav_menu-> drawerLayout.openDrawer(GravityCompat.START)
+
+             }
+             true
+         }
 
      }
-
      private fun makeCurrentFragment(fragment: Fragment) =
          supportFragmentManager.beginTransaction().apply {
              replace(R.id.fragment_container, fragment)
              commit()
          }
 
-     // top navigation
-     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-         menuInflater.inflate(R.menu.top_navigation, menu)
-         return super.onCreateOptionsMenu(menu)
-     }
-
-
-
-
-    lateinit var hamenu: Button
-     lateinit var drawerLayout: DrawerLayout
-     lateinit var navView: NavigationView
-
-     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-         super.onCreate(savedInstanceState, persistentState)
-         setContentView(R.layout.activity_main)
-         drawerLayout = findViewById(R.id.drawer_layout)
-         navView = findViewById(R.id.navigation_drawer)
-
-         hamenu = findViewById(R.id.nav_menu)
-        hamenu.setOnClickListener{
-            drawerLayout.openDrawer(drawerLayout)
-        }
-
-
-     }
-
-
 
  }
+
+
+
+
 
 
 
