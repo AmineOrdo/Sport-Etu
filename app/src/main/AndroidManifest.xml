@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.sportetu.IHM">
+        <activity android:name=".Inscription"></activity>
+        <activity android:name=".Authentification">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".IHM">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
