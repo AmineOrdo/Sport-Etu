@@ -8,7 +8,7 @@
     android:background="@drawable/gradient_background">
 
     <TextView
-        android:id="@+id/inscrire"
+        android:id="@+id/titre_app"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="S'inscrire"
@@ -63,7 +63,7 @@
         app:layout_constraintVertical_bias="0.39" />
 
     <EditText
-        android:id="@+id/mail"
+        android:id="@+id/mail_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -85,7 +85,7 @@
 
     <EditText
 
-        android:id="@+id/mdp"
+        android:id="@+id/mdp_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -106,7 +106,7 @@
         app:layout_constraintVertical_bias="0.59000003" />
 
     <Button
-        android:id="@+id/inscription"
+        android:id="@+id/connexion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -123,10 +123,10 @@
         app:layout_constraintVertical_bias="0.72" />
 
     <TextView
-        android:id="@+id/redirection_login"
+        android:id="@+id/redirection_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="déjà inscrit(e) ? Se connecter"
+        android:text="Déjà inscrit(e) ? Se connecter"
         android:textColor="#DCDCDC"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
