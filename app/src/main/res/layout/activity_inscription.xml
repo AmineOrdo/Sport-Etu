@@ -7,6 +7,20 @@
     tools:context=".Inscription"
     android:background="@drawable/gradient_background">
 
+    <ProgressBar
+
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.94" />
+
     <TextView
         android:id="@+id/titre_app"
         android:layout_width="wrap_content"
@@ -93,7 +107,7 @@
         android:background="#253695"
         android:ems="10"
         android:hint="mot de passe"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:padding="10dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
@@ -106,7 +120,7 @@
         app:layout_constraintVertical_bias="0.59000003" />
 
     <Button
-        android:id="@+id/connexion"
+        android:id="@+id/inscription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -123,7 +137,7 @@
         app:layout_constraintVertical_bias="0.72" />
 
     <TextView
-        android:id="@+id/redirection_register"
+        android:id="@+id/redirection_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Déjà inscrit(e) ? Se connecter"

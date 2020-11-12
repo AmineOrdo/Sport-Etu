@@ -1,20 +1,12 @@
 package com.example.sportetu
 
-import android.app.PendingIntent.getActivity
+import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.view.Gravity
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.widget.Button
-import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
 class IHM : AppCompatActivity()  {
@@ -51,6 +43,17 @@ class IHM : AppCompatActivity()  {
              true
          }
 
+
+      navigation_drawer.setNavigationItemSelectedListener {
+          when(it.itemId){
+              R.id.logout->deconnexion()
+              //R.id.mode_nuit->
+              //R.id.settings->
+          }
+          true
+      }
+
+
      }
      private fun makeCurrentFragment(fragment: Fragment) =
          supportFragmentManager.beginTransaction().apply {
@@ -58,6 +61,12 @@ class IHM : AppCompatActivity()  {
              commit()
          }
 
+
+    private fun deconnexion(){
+        FirebaseAuth.getInstance().signOut()
+        startActivity(Intent(applicationContext, Authentification::class.java))
+        finish()
+    }
 
  }
 
