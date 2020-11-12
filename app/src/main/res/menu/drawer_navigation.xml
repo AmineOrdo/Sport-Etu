@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/mode_nuit"
+        android:icon="@drawable/ic_baseline_nights_stay_24"
+        android:title="mode nuit"/>
+    <item android:id="@+id/settings"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="paramètres"
+        />
+    <item android:id="@+id/logout"
+        android:icon="@drawable/ic_baseline_exit_to_app_24"
+        android:title="se déconnecter"
+        />
+</menu>
