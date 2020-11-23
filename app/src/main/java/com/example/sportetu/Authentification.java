@@ -45,7 +45,7 @@ public class Authentification extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String email2 = email.getText().toString().trim();
-                String mdp2 = email.getText().toString().trim();
+                String mdp2 = mdp.getText().toString().trim();
 
                 // conditions sur le mail et mot de pass
                 if (TextUtils.isEmpty((email2))) {
@@ -86,7 +86,7 @@ public class Authentification extends AppCompatActivity {
         redirectionRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),Inscription.class));
+                startActivity(new Intent(getApplicationContext(), Inscription.class));
             }
         });
     }
