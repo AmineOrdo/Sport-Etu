@@ -2,20 +2,26 @@ package com.example.sportetu
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.header.*
 
 class IHM : AppCompatActivity()  {
      //  navigation vers les différentes pages
+
+
+
      override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
          setContentView(R.layout.activity_main)
-
-
+         var mAuth: FirebaseAuth? = FirebaseAuth.getInstance()
+         var mStore = FirebaseFirestore.getInstance()
 
          val ProgressionFragment = ProgressionFragment()
          val SuccesFragment = SuccesFragment()
@@ -33,11 +39,10 @@ class IHM : AppCompatActivity()  {
              true
          }
          // pour ouvrir la navigation drawer en cliquant sur le bouton menu en haut
-         lateinit var drawerLayout: DrawerLayout
-         drawerLayout = findViewById(R.id.drawer_layout)
+
          top_navigation.setOnMenuItemClickListener {
              when(it.itemId){
-                 R.id.nav_menu-> drawerLayout.openDrawer(GravityCompat.START)
+                 R.id.nav_menu -> drawer_layout.openDrawer(GravityCompat.START)
 
              }
              true
@@ -46,15 +51,40 @@ class IHM : AppCompatActivity()  {
 
       navigation_drawer.setNavigationItemSelectedListener {
           when(it.itemId){
-              R.id.logout->deconnexion()
+              R.id.logout -> deconnexion()
               //R.id.mode_nuit->
               //R.id.settings->
           }
           true
       }
 
+         //afficher les infos du profil de l'utilisateur sur la fenetre
+
+
+         var userID:String
+
+         userID = mAuth!!.currentUser!!.uid
+         val documentReference = mStore.collection(userID).document("profil_utilisateur")
+
+
+
+         documentReference.addSnapshotListener(
+             this
+         ) { documentSnapshot, e ->
+             prenom_user.text =  documentSnapshot!!.getString("fPrenom")
+             nom_user.text = documentSnapshot!!.getString("mNom")
+             email_user.text = documentSnapshot!!.getString("mEmail")
+         }
+
 
      }
+
+
+
+
+
+
+
      private fun makeCurrentFragment(fragment: Fragment) =
          supportFragmentManager.beginTransaction().apply {
              replace(R.id.fragment_container, fragment)

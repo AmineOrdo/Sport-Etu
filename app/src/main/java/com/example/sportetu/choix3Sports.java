@@ -102,30 +102,33 @@ public class choix3Sports extends AppCompatActivity {
                 String[] tab = new String[10];
 
                 userID = mAuth.getCurrentUser().getUid();
-                DocumentReference documentReference = mStore.collection("utilisateurs").document(userID);
-                Map<String, Object> utilisateur = new HashMap<>();
+                DocumentReference documentReference = mStore.collection(userID).document("Sport_utilisateur");
 
-                for (int i = 0; i < 3; i++) {
-                etiquette:
+                Map<String, Object> Sports_utilisateurs = new HashMap<>();
+                int i = 0;
+                while ( i < 3) {
+
                     if (checkbad.isShown()) {
                         tab[i] = "badminton";
-                        continue;
+                        continue ;
                     }
+                    i=i+1;
                     if (checkfoot.isShown()) {
                         tab[i] = "football";
                         continue;
                     }
+                    i=i+1;
                     if (checkbask.isShown()) {
                         tab[i] = "basketball";
                         continue;
                     }
                 }
 
-                utilisateur.put("Sportpref1", tab[0]);
-                utilisateur.put("Sportpref2", tab[1]);
-                utilisateur.put("Sportpref3", tab[2]);
+                Sports_utilisateurs.put("Sportpref1", tab[0]);
+                Sports_utilisateurs.put("Sportpref2", tab[1]);
+                Sports_utilisateurs.put("Sportpref3", tab[2]);
 
-                documentReference.set(utilisateur).addOnSuccessListener(new OnSuccessListener<Void>() {
+                documentReference.set(Sports_utilisateurs).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d("TAG", "onSuccess: choix des sports de user effectuer!!!" + userID);

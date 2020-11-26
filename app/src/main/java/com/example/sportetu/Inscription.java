@@ -1,6 +1,7 @@
 package com.example.sportetu;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -20,7 +21,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,8 +47,8 @@ public class Inscription extends AppCompatActivity {
 
         email = findViewById(R.id.mail_register);
         mdp = findViewById(R.id.mdp_register);
-        prenom = findViewById(R.id.prenom);
-        nom = findViewById(R.id.nom);
+        prenom = findViewById(R.id.prenom_user);
+        nom = findViewById(R.id.nom_user);
         redirectionLogin = findViewById(R.id.redirection_login);
         inscription = findViewById(R.id.inscription);
         progressBar = findViewById(R.id.progressBar2);
@@ -58,7 +62,7 @@ public class Inscription extends AppCompatActivity {
         inscription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 String email2= email.getText().toString().trim();
+                 final String email2= email.getText().toString().trim();
                 String mdp2= mdp.getText().toString().trim();
                 final String prenom2= prenom.getText().toString();
                 final String nom2= nom.getText().toString();
@@ -90,14 +94,20 @@ public class Inscription extends AppCompatActivity {
                             Toast.makeText(Inscription.this, "Ton compte est créé, Bienvenue!", Toast.LENGTH_SHORT).show();
 
                             userID= mAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = mStore.collection("utilisateurs").document(userID);
-                            Map<String, Object> utilisateur = new HashMap<>();
-                            utilisateur.put("mNom",nom2);
-                            utilisateur.put("fPrenom",prenom2);
-                            documentReference.set(utilisateur).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            DocumentReference documentReference = mStore.collection(userID).document("profil_utilisateur");
+                            Map<String, Object> profil_utilisateurs = new HashMap<>();
+
+                            profil_utilisateurs.put("mEmail",email2);
+                            profil_utilisateurs.put("mNom",nom2);
+                            profil_utilisateurs.put("fPrenom",prenom2);
+
+
+
+
+                            documentReference.set(profil_utilisateurs).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Log.d("TAG","onSuccess: profil de l'utilisateur créé"+ userID);
+                                    Log.d("TAG", "onSuccess: profil de l'utilisateur créé" + userID);
                                 }
                             });
                             startActivity(new Intent(getApplicationContext(),dialogActivitychoixSports.class));
