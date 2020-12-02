@@ -1,12 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/ModifierObjectifView"
+        android:layout_width="171dp"
+        android:layout_height="180dp"
+        android:background="@color/colorView"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.918"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.661" />
+
+    <View
+        android:id="@+id/ObjectifView"
+        android:layout_width="171dp"
+        android:layout_height="180dp"
+        android:background="@color/colorView"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.661" />
+
+    <ImageView
+        android:id="@+id/ImageObjecif"
+        android:layout_width="141dp"
+        android:layout_height="143dp"
+        android:layout_marginBottom="20dp"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ObjectifView"
+        app:layout_constraintEnd_toEndOf="@+id/ObjectifView"
+        app:layout_constraintStart_toStartOf="@+id/ObjectifView"
+        app:layout_constraintTop_toBottomOf="@+id/PlanifierText"
+        app:layout_constraintVertical_bias="0.513"
+        app:srcCompat="@drawable/ic_baseline_adjust_24" />
 
     <TextView
+        android:id="@+id/ObjectifText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="page succes"
-        android:textSize="30dp"
-        android:layout_centerInParent="true"/>
+        android:text="Objectif"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/ObjectifView"
+        app:layout_constraintEnd_toEndOf="@+id/ObjectifView"
+        app:layout_constraintStart_toStartOf="@+id/ObjectifView" />
 
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/modiferObjImage"
+        android:layout_width="141dp"
+        android:layout_height="143dp"
+        android:layout_marginBottom="20dp"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ObjectifView"
+        app:layout_constraintEnd_toEndOf="@+id/ModifierObjectifView"
+        app:layout_constraintHorizontal_bias="0.566"
+        app:layout_constraintStart_toStartOf="@+id/ModifierObjectifView"
+        app:layout_constraintTop_toBottomOf="@+id/PlanifierText"
+        app:layout_constraintVertical_bias="0.513"
+        app:srcCompat="@drawable/ic_baseline_history_edu_24" />
+
+    <TextView
+        android:id="@+id/ModifierobjectifText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modifier"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/ObjectifView"
+        app:layout_constraintEnd_toEndOf="@+id/ModifierObjectifView"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/ModifierObjectifView" />
+
+    <View
+        android:id="@+id/ProchainObjectifView"
+        android:layout_width="368dp"
+        android:layout_height="209dp"
+        android:background="@color/colorView"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.162">
+
+    </View>
+
+    <TextView
+        android:id="@+id/ProchainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mon prochain objectif"
+        android:textSize="18sp"
+        android:elevation="5dp"
+        android:textColor="@color/textcolorblue"
+        app:layout_constraintStart_toStartOf="@+id/ProchainObjectifView"
+        app:layout_constraintTop_toTopOf="@+id/ProchainObjectifView" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:elevation="5dp"
+        android:text="pour le 11/08/20"
+        android:textColor="@color/textcolorblue"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ProchainObjectifView"
+        app:layout_constraintEnd_toEndOf="@+id/ProchainObjectifView"
+        app:layout_constraintTop_toTopOf="@+id/ProchainObjectifView"
+        app:layout_constraintVertical_bias="0.097" />
+
+    <TextView
+        android:id="@+id/activitetermineé"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:elevation="5dp"
+        android:text="activités terminés: 45/80 "
+        android:textColor="@color/textcolorblue"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ProchainObjectifView"
+        app:layout_constraintStart_toStartOf="@+id/ProchainObjectifView"
+        app:layout_constraintTop_toTopOf="@+id/ProchainObjectifView"
+        app:layout_constraintVertical_bias="0.287" />
+
+    <TextView
+        android:id="@+id/km"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:elevation="5dp"
+        android:text="km parcourue: 45/80 "
+        android:textColor="@color/textcolorblue"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ProchainObjectifView"
+        app:layout_constraintStart_toStartOf="@+id/ProchainObjectifView"
+        app:layout_constraintTop_toTopOf="@+id/ProchainObjectifView"
+        app:layout_constraintVertical_bias="0.471" />
+
+    <TextView
+        android:id="@+id/pompe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="188dp"
+        android:elevation="5dp"
+        android:text="pompes: 200/3000 "
+        android:textColor="@color/textcolorblue"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ProchainObjectifView"
+        app:layout_constraintStart_toStartOf="@+id/ProchainObjectifView"
+        app:layout_constraintTop_toTopOf="@+id/ProchainObjectifView"
+        app:layout_constraintVertical_bias="0.471" />
+
+    <TextView
+        android:id="@+id/pourcentageObjectif"
+        android:layout_width="39dp"
+        android:layout_height="29dp"
+        android:elevation="5dp"
+        android:text="50% "
+        android:textColor="@color/textcolorblue"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ProchainObjectifView"
+        app:layout_constraintEnd_toEndOf="@+id/ProchainObjectifView"
+        app:layout_constraintHorizontal_bias="0.819"
+        app:layout_constraintStart_toStartOf="@+id/ProchainObjectifView"
+        app:layout_constraintTop_toTopOf="@+id/ProchainObjectifView"
+        app:layout_constraintVertical_bias="0.958" />
+
+    <ImageButton
+        android:id="@+id/nextModifierObjectif"
+        android:layout_width="47dp"
+        android:layout_height="41dp"
+        android:background="@color/colorPrimary"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ProchainObjectifView"
+        app:layout_constraintEnd_toEndOf="@+id/ProchainObjectifView"
+        app:srcCompat="@drawable/ic_baseline_arrow_forward_24" />
+
+    <ProgressBar
+        android:id="@+id/progressbarObejectif"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="230dp"
+        android:layout_height="29dp"
+        android:elevation="5dp"
+        android:progress="50"
+        android:progressBackgroundTint="@color/colorAccent"
+        android:progressTint="@color/colorPrimary"
+        android:max="100"
+        app:layout_constraintBottom_toBottomOf="@+id/ProchainObjectifView"
+        app:layout_constraintEnd_toEndOf="@+id/ProchainObjectifView"
+        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintStart_toStartOf="@+id/ProchainObjectifView"
+        app:layout_constraintTop_toTopOf="@+id/ProchainObjectifView"
+        app:layout_constraintVertical_bias="0.958" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

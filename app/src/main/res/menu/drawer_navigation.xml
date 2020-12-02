@@ -3,6 +3,14 @@
     <item android:id="@+id/mode_nuit"
         android:icon="@drawable/ic_baseline_nights_stay_24"
         android:title="mode nuit"/>
+    <item android:id="@+id/Amis"
+        android:icon="@drawable/ic_baseline_account_box_24"
+        android:title="Amis"
+        />
+    <item android:id="@+id/Classement"
+        android:icon="@drawable/ic_baseline_assessment_24"
+        android:title="Classement"
+        />
     <item android:id="@+id/settings"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="paramètres"

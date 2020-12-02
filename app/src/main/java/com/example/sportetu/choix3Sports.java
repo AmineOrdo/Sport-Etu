@@ -105,23 +105,59 @@ public class choix3Sports extends AppCompatActivity {
                 DocumentReference documentReference = mStore.collection(userID).document("Sport_utilisateur");
 
                 Map<String, Object> Sports_utilisateurs = new HashMap<>();
-                int i = 0;
-                while ( i < 3) {
 
-                    if (checkbad.isShown()) {
-                        tab[i] = "badminton";
-                        continue ;
-                    }
-                    i=i+1;
-                    if (checkfoot.isShown()) {
-                        tab[i] = "football";
-                        continue;
-                    }
-                    i=i+1;
+                ///Tab[0] pour sport pref 1
+                    if (checkbad.isShown() ) {
+                        tab[0] = "badminton";
+
+                    } else
+                     if (checkfoot.isShown() ) {
+                        tab[0] = "football";
+
+
+                    } else
                     if (checkbask.isShown()) {
-                        tab[i] = "basketball";
-                        continue;
+                        tab[0] = "basketball";
+
                     }
+                    else {
+
+                    }
+
+                ///Tab[1] pour sport pref 2
+                if (checkbad.isShown()&& tab[0]!="badminton")  {
+                    tab[1] = "badminton";
+
+                } else
+                if (checkfoot.isShown()&& tab[0]!="football") {
+                    tab[1] = "football";
+
+
+                } else
+                if (checkbask.isShown()&& tab[0]!="basketball") {
+                    tab[1] = "basketball";
+
+                }
+                else {
+
+                }
+
+                ///Tab[2] pour sport pref 3
+                if (checkbad.isShown()&& tab[0]!="badminton" && tab[1]!="badminton") {
+                    tab[2] = "badminton";
+
+                } else
+                if (checkfoot.isShown()&& tab[0]!="football" && tab[1]!="football") {
+                    tab[2] = "football";
+
+
+                } else
+                if (checkbask.isShown() && tab[0]!="basketball" && tab[1]!="basketball") {
+                    tab[2] = "basketball";
+
+                }
+                else {
+
                 }
 
                 Sports_utilisateurs.put("Sportpref1", tab[0]);

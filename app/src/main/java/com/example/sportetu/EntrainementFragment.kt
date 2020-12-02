@@ -1,10 +1,15 @@
 package com.example.sportetu
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.sportetu.entrainement.EntrainementActivity
+import com.example.sportetu.entrainement.ProgrammationActivity
+import kotlinx.android.synthetic.main.fragment_entrainement.*
+import kotlinx.android.synthetic.main.fragment_entrainement.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,14 +32,35 @@ class EntrainementFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
     }
 
+
+
+    lateinit var mView: View
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_entrainement, container, false)
+        mView=inflater.inflate(R.layout.fragment_entrainement, container, false)
+
+        //Accéder à l'activité pour planifier une activité
+         mView.PlanifierView.setOnClickListener(View.OnClickListener {
+
+             val intent = Intent(activity, ProgrammationActivity::class.java)
+             startActivity(intent)
+
+         })
+        //Accéder à l'activité pour modifier une  activité
+
+        mView.ModifierView.setOnClickListener(View.OnClickListener {
+
+            val intent = Intent(activity, EntrainementActivity::class.java)
+            startActivity(intent)
+        })
+        return mView
     }
 
     companion object {

@@ -14,7 +14,14 @@
         <activity android:name=".dialogActivitychoixSports"></activity>
         <activity android:name=".choix3Sports" />
         <activity android:name=".Inscription" />
+        <activity android:name=".Recommandation"/>
+        <activity android:name=".entrainement.ProgrammationActivity"/>
+        <activity
+            android:name=".entrainement.EntrainementActivity"/>
+
+
         <activity android:name=".Authentification">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
