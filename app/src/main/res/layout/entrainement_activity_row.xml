@@ -6,11 +6,15 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="3dp"
     app:cardElevation="3dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    android:layout_marginTop="6dp"
+    android:layout_marginStart="6dp"
+    android:layout_marginEnd="6dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="6dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,6 +38,20 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textDate"
             android:text="heure debut" />
+        <TextView
+            android:id="@+id/dureeActivte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textHeure"
+            android:text="durée" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nomActivite"
+            android:layout_marginStart="300dp"
+            android:text="planifie" />
 
 
 

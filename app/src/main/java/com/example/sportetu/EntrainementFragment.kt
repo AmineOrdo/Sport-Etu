@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.sportetu.entrainement.EntrainementActivity
 import com.example.sportetu.entrainement.ProgrammationActivity
-import kotlinx.android.synthetic.main.fragment_entrainement.*
+import com.example.sportetu.entrainement.entrainementActivity
 import kotlinx.android.synthetic.main.fragment_entrainement.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -57,7 +56,7 @@ class EntrainementFragment : Fragment() {
 
         mView.ModifierView.setOnClickListener(View.OnClickListener {
 
-            val intent = Intent(activity, EntrainementActivity::class.java)
+            val intent = Intent(activity, entrainementActivity::class.java)
             startActivity(intent)
         })
         return mView

@@ -11,44 +11,213 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Programmer une activité"
-        android:textColor="@android:color/black"
+        android:textColor="@color/textcolorblue"
+        android:layout_marginStart="15dp"
         android:textSize="30dp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04000002" />
 
     <EditText
         android:id="@+id/nomActiviteTF"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="activité"
-        app:layout_constraintTop_toBottomOf="@+id/materialTextView">
+        android:hint="choisissez votre sport"
+        android:textColorHighlight="@color/textcolorblue"
+        android:textColorHint="@color/textcolorblue"
+        android:elevation="60dp"
+
+        android:textColor="@color/textcolorblue"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="@+id/view2">
 
     </EditText>
 
+
     <EditText
-        android:id="@+id/heureActiviteTF"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/durreHourActiviteTf"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:background="@color/colorAccent"
+        android:elevation="6dp"
         android:hint="heure"
-        app:layout_constraintTop_toBottomOf="@id/nomActiviteTF"/>
-
+        android:inputType="number"
+        android:textColor="@color/textcolorblue"
+        android:textColorHighlight="@color/textcolorblue"
+        android:textColorHint="@color/textcolorblue"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toBottomOf="@+id/Dureelabel" />
 
     <EditText
-        android:id="@+id/dateActiviteTF"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="date"
-        app:layout_constraintTop_toBottomOf="@id/heureActiviteTF"/>
-
-
-
+        android:id="@+id/dureeMinutesActiviteTF"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:elevation="6dp"
+        android:background="@color/colorAccent"
+        android:hint="minutes"
+        android:inputType="number"
+        android:textColor="@color/textcolorblue"
+        android:textColorHighlight="@color/textcolorblue"
+        android:textColorHint="@color/textcolorblue"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toBottomOf="@+id/Dureelabel" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="Enregistrer"
+        android:textColor="@color/textcolor"
         android:id="@+id/buttonProgrammer"
+        android:background="@color/colorPrimary"
         />
+
+    <TextView
+        android:id="@+id/timeTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textSize="20sp"
+        android:textColor="@color/textcolorblue"
+        app:layout_constraintBottom_toBottomOf="@+id/pickTimeBtn"
+        app:layout_constraintEnd_toEndOf="@+id/pickTimeBtn"
+        app:layout_constraintStart_toStartOf="@+id/pickTimeBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87" />
+
+    <Button
+        android:id="@+id/pickTimeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choisir date"
+        android:textColor="@color/textcolor"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
+
+    <TextView
+        android:id="@+id/hourTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Heure"
+        android:textSize="20sp"
+        android:textColor="@color/textcolorblue"
+        app:layout_constraintBottom_toBottomOf="@+id/pickHourBtn"
+        app:layout_constraintEnd_toEndOf="@+id/pickHourBtn"
+        app:layout_constraintStart_toStartOf="@+id/pickHourBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87" />
+
+    <Button
+        android:id="@+id/pickHourBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choisir heure"
+        android:textColor="@color/textcolor"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
+
+    <TextView
+        android:id="@+id/Dureelabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Durée"
+        android:textSize="28dp"
+        android:textColor="@color/textcolorblue"
+        app:layout_constraintBottom_toTopOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintStart_toStartOf="@+id/view3" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="347dp"
+        android:layout_height="173dp"
+        android:background="@color/colorView"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonProgrammer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialTextView"
+        app:layout_constraintVertical_bias="0.019" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="289dp"
+        android:layout_height="155dp"
+        android:background="@color/colorView"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonProgrammer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialTextView"
+        app:layout_constraintVertical_bias="0.424" />
+
+    <TextView
+        android:id="@+id/textChoix"
+        android:layout_width="303dp"
+        android:layout_height="53dp"
+        android:elevation="5dp"
+        android:text="Nous vous conseillons l'activité \nsuivante si vous voulez: "
+        android:textColor="@color/textcolorblue"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/nomActiviteTF"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+        android:id="@+id/textChoix2"
+        android:layout_width="303dp"
+        android:layout_height="53dp"
+        android:elevation="5dp"
+        android:text="Sinon vous pouvez toujours choisir
+Vous-même le sport qui vous plaît "
+        android:textColor="@color/textcolorblue"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/nomActiviteTF"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.625" />
+
+    <TextView
+        android:id="@+id/sportConseiller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:text="SPORT"
+        android:textColor="@color/textcolorblue"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/nomActiviteTF"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.29000002" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

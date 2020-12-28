@@ -16,8 +16,7 @@
         <activity android:name=".Inscription" />
         <activity android:name=".Recommandation"/>
         <activity android:name=".entrainement.ProgrammationActivity"/>
-        <activity
-            android:name=".entrainement.EntrainementActivity"/>
+        <activity android:name=".entrainement.entrainementActivity"/>
 
 
         <activity android:name=".Authentification">

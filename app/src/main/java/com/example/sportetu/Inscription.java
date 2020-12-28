@@ -55,6 +55,7 @@ public class Inscription extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mStore=FirebaseFirestore.getInstance();
+
         if(mAuth.getCurrentUser()!=null){
             startActivity(new Intent(getApplicationContext(),choix3Sports.class));
             finish();
@@ -68,6 +69,7 @@ public class Inscription extends AppCompatActivity {
                 final String nom2= nom.getText().toString();
 
 
+
                 // conditions sur le mail et mot de pass
                 if(TextUtils.isEmpty((email2))){
                     email.setError("une adresse mail est nécessaire pour s'inscrire ");
@@ -76,6 +78,15 @@ public class Inscription extends AppCompatActivity {
 
                 if( TextUtils.isEmpty(mdp2)){
                     mdp.setError("un mot de passe est nécessaire pour s'inscrire");
+                    return;
+                }
+
+                if( TextUtils.isEmpty(prenom2)){
+                    prenom.setError("un mot de passe est nécessaire pour s'inscrire");
+                    return;
+                }
+                if( TextUtils.isEmpty(nom2)){
+                    nom.setError("un mot de passe est nécessaire pour s'inscrire");
                     return;
                 }
 
@@ -100,8 +111,6 @@ public class Inscription extends AppCompatActivity {
                             profil_utilisateurs.put("mEmail",email2);
                             profil_utilisateurs.put("mNom",nom2);
                             profil_utilisateurs.put("fPrenom",prenom2);
-
-
 
 
                             documentReference.set(profil_utilisateurs).addOnSuccessListener(new OnSuccessListener<Void>() {
