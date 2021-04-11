@@ -6,3 +6,7 @@ Sport'Etu est une application Android qui vise à aider les étudiants à faire 
 L'apk debug de l'appli est disponible dans app/build/outputs.
 
 
+J'ai eu des problèmes pour push sur github: voici l'url du projet en .zip :
+
+
+Vous trouverez également le rapport du projet ainsi que la video de présentation.
