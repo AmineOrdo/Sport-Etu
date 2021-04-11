@@ -1,2 +1,6 @@
 # Sport-Etu
-Application Android de suivi sportif étudiant réalisé dans le cadre d'un projet étudiant.
+Sport'Etu est une application Android qui vise à aider les étudiants à faire plus de sport.
+
+-C'est un projet étudiant
+
+
