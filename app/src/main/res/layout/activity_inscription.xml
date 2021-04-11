@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Inscription"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/gradient_list"
+    android:id="@+id/layoutsign">
 
     <ProgressBar
 
@@ -40,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="#253695"
+        android:background="#1079A8"
         android:ems="10"
         android:hint="Nom"
         android:inputType="textPersonName"
@@ -61,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="#253695"
+        android:background="#1079A8"
         android:ems="10"
         android:hint="Prénom"
         android:inputType="textPersonName"
@@ -82,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="#253695"
+        android:background="#1079A8"
         android:ems="10"
         android:hint="Adresse mail"
         android:inputType="textPersonName"
@@ -104,7 +105,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="#253695"
+        android:background="#1079A8"
         android:ems="10"
         android:hint="mot de passe"
         android:inputType="textPassword"

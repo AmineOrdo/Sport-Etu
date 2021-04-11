@@ -3,8 +3,14 @@ package com.example.sportetu;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.NotificationCompat;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -15,6 +21,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sportetu.entrainement.ProgrammationActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -56,10 +63,13 @@ public class Inscription extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mStore=FirebaseFirestore.getInstance();
 
-        if(mAuth.getCurrentUser()!=null){
-            startActivity(new Intent(getApplicationContext(),choix3Sports.class));
-            finish();
-        }
+        ConstraintLayout constraintLayout = findViewById(R.id.layoutsign);
+        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.start();
+
+
         inscription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,7 +121,8 @@ public class Inscription extends AppCompatActivity {
                             profil_utilisateurs.put("mEmail",email2);
                             profil_utilisateurs.put("mNom",nom2);
                             profil_utilisateurs.put("fPrenom",prenom2);
-
+                            profil_utilisateurs.put("nbconnexions",1);
+                            profil_utilisateurs.put("nbActivite",0);
 
                             documentReference.set(profil_utilisateurs).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
@@ -119,6 +130,8 @@ public class Inscription extends AppCompatActivity {
                                     Log.d("TAG", "onSuccess: profil de l'utilisateur créé" + userID);
                                 }
                             });
+
+
                             startActivity(new Intent(getApplicationContext(),dialogActivitychoixSports.class));
                         }else{
                             Toast.makeText(Inscription.this,"une erreur est survenue, veuillez réessayer        "+ task.getException().getMessage(),Toast.LENGTH_SHORT).show();
@@ -137,5 +150,29 @@ public class Inscription extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),Authentification.class));
             }
         });
+
+
+/*
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(
+                this
+        )
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("Sport'Etu | activité terminée")
+                .setContentText("votre activité est à présent terminée")
+                .setAutoCancel(true);
+
+            Intent intent = new Intent(this,Authentification.class);
+
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(pendingIntent);
+
+        NotificationManager notificationManager = (NotificationManager)getSystemService(
+                Context.NOTIFICATION_SERVICE
+        );
+        notificationManager.notify(0,builder.build());
+*/
+
     }
 }

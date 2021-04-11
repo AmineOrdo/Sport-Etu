@@ -9,12 +9,14 @@
     app:cardUseCompatPadding="true"
     android:layout_marginTop="6dp"
     android:layout_marginStart="6dp"
-    android:layout_marginEnd="6dp">
+    android:layout_marginEnd="6dp"
+   >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="6dp">
+        android:padding="6dp"
+        android:background="@color/colorAccent">
 
         <TextView
             android:layout_width="wrap_content"
@@ -23,7 +25,7 @@
             android:id="@+id/nomActivite"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:textColor="@android:color/black"/>
+            android:textColor="@color/textcolorblue"/>
 
         <TextView
             android:id="@+id/textDate"
@@ -44,16 +46,21 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textHeure"
             android:text="durée" />
+        <TextView
+            android:id="@+id/durrelabelheure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textHeure"
+            android:layout_marginStart="40dp"
+            android:text="heure(s)" />
 
         <TextView
             android:id="@+id/status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/nomActivite"
-            android:layout_marginStart="300dp"
+            android:layout_marginStart="290dp"
             android:text="planifie" />
-
-
 
 
     </RelativeLayout>

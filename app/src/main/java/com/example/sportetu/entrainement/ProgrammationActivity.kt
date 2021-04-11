@@ -2,24 +2,31 @@
   package com.example.sportetu.entrainement
 
 import android.app.DatePickerDialog
+import android.app.PendingIntent
 import android.app.TimePickerDialog
 import android.content.Intent
+import android.graphics.drawable.AnimationDrawable
+import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.example.sportetu.IHM
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.sportetu.main_activity
 import com.example.sportetu.R
+import com.example.sportetu.service
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+
 import kotlinx.android.synthetic.main.activity_programmation.*
-import kotlinx.android.synthetic.main.recommandation_test.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.properties.Delegates
 
 
-class ProgrammationActivity : AppCompatActivity() {
+  class ProgrammationActivity : AppCompatActivity() {
 
       lateinit var activite:String
       lateinit var date:String
@@ -27,11 +34,20 @@ class ProgrammationActivity : AppCompatActivity() {
       lateinit var duree:String
       lateinit var status: String
 
+      lateinit var dateCalendar : String
+      lateinit var pendingIntent: PendingIntent
+      var durreInt by Delegates.notNull<Int>()
 
+      @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_programmation)
 
+          val constraintLayout = findViewById<ConstraintLayout>(R.id.layoutprog)
+          val animationDrawable = constraintLayout.background as AnimationDrawable
+          animationDrawable.setEnterFadeDuration(2000)
+          animationDrawable.setExitFadeDuration(4000)
+          animationDrawable.start()
 
         var mAuth: FirebaseAuth? = FirebaseAuth.getInstance()
         var mStore = FirebaseFirestore.getInstance()
@@ -49,25 +65,53 @@ class ProgrammationActivity : AppCompatActivity() {
             var sportPref3 = documentSnapshot!!.getString("Sportpref3").toString()
 
 
-            val rmd = (1..3).random()
+            val rmdGeneral = (1..3).random()
+            val rmdFav = (1..3).random()
+            val rmdTout = (1..2).random()
+            val rmdCategorie = (0..5).random()
 
-            if (rmd == 1) {
-                sportConseiller.text = sportPref1
-            } else if (rmd == 2) {
-                sportConseiller.text = sportPref2
-            } else if (rmd == 3) {
-                sportConseiller.text = sportPref3
+
+            val sportIndividuel = arrayOf("musculation","boxe","judo","natation","athlétisme","cyclisme")
+            val sportCollectif = arrayOf("football","basketball","badminton","handball","rugby","baseball")
+
+            if(rmdGeneral==1 ||rmdGeneral==2 ){
+                if (rmdFav == 1) {
+                    sportConseiller.text = sportPref1
+                } else if (rmdFav == 2) {
+                    sportConseiller.text = sportPref2
+                } else if (rmdFav == 3) {
+                    sportConseiller.text = sportPref3
+                }
+
+            } else if(rmdGeneral==3){
+                if(rmdTout==1){
+                    sportConseiller.text=sportCollectif[rmdCategorie]
+                }else if (rmdTout==2){
+                    sportConseiller.text=sportIndividuel[rmdCategorie]
+                }
+
             }
+
         }
 
 
 
         pickTimeBtn.setOnClickListener {
 
-            val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            val dpd = DatePickerDialog(
+                this,
+                DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
 
-                    timeTv.setText("" + dayOfMonth + " " + (monthOfYear+1) + " " + year)//"" + dayOfMonth + "/" + (month + 1) + "/" + year )
-                }, year, month, day)
+                    timeTv.setText("" + dayOfMonth + " " + (monthOfYear + 1) + " " + year)
+
+                    dateCalendar = ("" + year + "-" + (monthOfYear + 1) + "-" + dayOfMonth)
+
+
+                },
+                year,
+                month,
+                day
+            )
             dpd.show()
 
         }
@@ -95,11 +139,6 @@ class ProgrammationActivity : AppCompatActivity() {
 //bouton enregistrer
         buttonProgrammer.setOnClickListener {
 
-
-            /*var prout =Recommandation()
-            prout.recommandation(date, heure, duree)
-             //activite= testRecommandation.getText().toString()*/
-
             var activiteChoisie =nomActiviteTF.getText().toString()
             var SportConseille = sportConseiller.getText().toString()
             if(TextUtils.isEmpty(activiteChoisie)){
@@ -108,7 +147,9 @@ class ProgrammationActivity : AppCompatActivity() {
                 activite = nomActiviteTF.getText().toString()
             }
 
-            duree = durreHourActiviteTf.getText().toString()+":"+dureeMinutesActiviteTF.getText().toString()
+
+            duree = durreHourActiviteTf.getText().toString()
+            durreInt=duree.toInt()
             status="planifie"
             date = timeTv.getText().toString()
             heure = hourTv.getText().toString()
@@ -142,9 +183,28 @@ class ProgrammationActivity : AppCompatActivity() {
                     )
                 })
 
-            val intent = Intent(this, IHM::class.java)
+
+
+            dateCalendar= dateCalendar +"-"+heure
+            var fulldate = SimpleDateFormat("yyyy-MM-dd-HH:mm").parse(dateCalendar)
+
+
+            val serviceIntent = Intent(this, service::class.java)
+            serviceIntent.putExtra("nomActivite", activite)
+            serviceIntent.putExtra("date", date)
+            serviceIntent.putExtra("heuredebut", heure)
+            serviceIntent.putExtra("duree", duree)
+            serviceIntent.putExtra("status", "valide")
+            serviceIntent.putExtra("nomDoc", activiteAdd)
+            serviceIntent.putExtra("echeance", fulldate.getTime() + (durreInt * 60 * 60 * 1000))
+
+            startForegroundService(serviceIntent)
+
+
+
+            val intent = Intent(this, main_activity::class.java)
             startActivity(intent)
-            finish()
+
 
         }
 

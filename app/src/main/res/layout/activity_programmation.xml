@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".entrainement.ProgrammationActivity">
+    tools:context=".entrainement.ProgrammationActivity"
+    android:background="@drawable/gradient_list"
+    android:id="@+id/layoutprog">
 
     <TextView
         android:id="@+id/materialTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Programmer une activité"
-        android:textColor="@color/textcolorblue"
+        android:textColor="@color/textcolor"
         android:layout_marginStart="15dp"
         android:textSize="30dp"
         android:textStyle="bold"
@@ -27,9 +29,9 @@
         android:layout_height="wrap_content"
         android:hint="choisissez votre sport"
         android:textColorHighlight="@color/textcolorblue"
+        android:elevation="6dp"
         android:textColorHint="@color/textcolorblue"
-        android:elevation="60dp"
-
+        android:background="@color/colorPrimary"
         android:textColor="@color/textcolorblue"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="@+id/view2"
@@ -42,7 +44,7 @@
         android:id="@+id/durreHourActiviteTf"
         android:layout_width="100dp"
         android:layout_height="45dp"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimary"
         android:elevation="6dp"
         android:hint="heure"
         android:inputType="number"
@@ -51,26 +53,10 @@
         android:textColorHint="@color/textcolorblue"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/view3"
-        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="@+id/view3"
         app:layout_constraintTop_toBottomOf="@+id/Dureelabel" />
 
-    <EditText
-        android:id="@+id/dureeMinutesActiviteTF"
-        android:layout_width="100dp"
-        android:layout_height="45dp"
-        android:elevation="6dp"
-        android:background="@color/colorAccent"
-        android:hint="minutes"
-        android:inputType="number"
-        android:textColor="@color/textcolorblue"
-        android:textColorHighlight="@color/textcolorblue"
-        android:textColorHint="@color/textcolorblue"
-        app:layout_constraintBottom_toBottomOf="@+id/view3"
-        app:layout_constraintEnd_toEndOf="@+id/view3"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="@+id/view3"
-        app:layout_constraintTop_toBottomOf="@+id/Dureelabel" />
+
 
     <Button
         android:layout_width="match_parent"
@@ -88,7 +74,7 @@
         android:layout_height="wrap_content"
         android:text="Date"
         android:textSize="20sp"
-        android:textColor="@color/textcolorblue"
+        android:textColor="@color/textcolor"
         app:layout_constraintBottom_toBottomOf="@+id/pickTimeBtn"
         app:layout_constraintEnd_toEndOf="@+id/pickTimeBtn"
         app:layout_constraintStart_toStartOf="@+id/pickTimeBtn"
@@ -115,7 +101,7 @@
         android:layout_height="wrap_content"
         android:text="Heure"
         android:textSize="20sp"
-        android:textColor="@color/textcolorblue"
+        android:textColor="@color/textcolor"
         app:layout_constraintBottom_toBottomOf="@+id/pickHourBtn"
         app:layout_constraintEnd_toEndOf="@+id/pickHourBtn"
         app:layout_constraintStart_toStartOf="@+id/pickHourBtn"
@@ -142,16 +128,16 @@
         android:layout_height="wrap_content"
         android:text="Durée"
         android:textSize="28dp"
-        android:textColor="@color/textcolorblue"
+        android:textColor="@color/textcolor"
         app:layout_constraintBottom_toTopOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/view3"
         app:layout_constraintStart_toStartOf="@+id/view3" />
 
     <View
         android:id="@+id/view2"
-        android:layout_width="347dp"
-        android:layout_height="173dp"
-        android:background="@color/colorView"
+        android:layout_width="350dp"
+        android:layout_height="199dp"
+        android:background="@color/colorAccent"
         android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/buttonProgrammer"
         app:layout_constraintEnd_toEndOf="parent"
@@ -164,42 +150,40 @@
         android:id="@+id/view3"
         android:layout_width="289dp"
         android:layout_height="155dp"
-        android:background="@color/colorView"
+        android:background="@color/colorAccent"
         android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/buttonProgrammer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialTextView"
-        app:layout_constraintVertical_bias="0.424" />
+        app:layout_constraintVertical_bias="0.46" />
 
     <TextView
         android:id="@+id/textChoix"
-        android:layout_width="303dp"
-        android:layout_height="53dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:elevation="5dp"
-        android:text="Nous vous conseillons l'activité \nsuivante si vous voulez: "
+        android:text="Activité conseillée: "
         android:textColor="@color/textcolorblue"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/nomActiviteTF"
         app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toTopOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.084" />
 
     <TextView
         android:id="@+id/textChoix2"
-        android:layout_width="303dp"
-        android:layout_height="53dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:elevation="5dp"
-        android:text="Sinon vous pouvez toujours choisir
-Vous-même le sport qui vous plaît "
+        android:text="Ou, choisissez votre sport:"
         android:textColor="@color/textcolorblue"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/nomActiviteTF"
         app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toTopOf="@+id/view2"
         app:layout_constraintVertical_bias="0.625" />
@@ -214,10 +198,10 @@ Vous-même le sport qui vous plaît "
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/nomActiviteTF"
         app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.29000002" />
+        app:layout_constraintTop_toBottomOf="@+id/textChoix"
+        app:layout_constraintVertical_bias="0.050000012" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

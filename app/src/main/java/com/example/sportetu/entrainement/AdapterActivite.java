@@ -42,6 +42,9 @@ public class AdapterActivite extends FirestoreRecyclerAdapter<activite, AdapterA
             parent, false);
         return new ActiviteViewHolder(v);
     }
+    public void deleteItem (int position){
+        getSnapshots().getSnapshot(position).getReference().delete();
+    }
 
     class ActiviteViewHolder extends RecyclerView.ViewHolder{
 
@@ -57,5 +60,6 @@ public class AdapterActivite extends FirestoreRecyclerAdapter<activite, AdapterA
 
 
         }
+
     }
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true"
+    android:layout_marginTop="7dp"
+    android:layout_marginStart="7dp"
+    android:layout_marginEnd="7dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Titre"
+            android:id="@+id/nomSucces"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/textcolorblue"/>
+
+        <TextView
+            android:id="@+id/description_succes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nomSucces"
+            android:text="description"
+            android:textSize="16sp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="7dp"
+            />
+
+        <ImageView
+            android:id="@+id/imageSucces"
+            android:layout_width="44dp"
+            android:layout_height="47dp"
+            android:layout_below="@id/nomSucces"
+            android:layout_marginStart="320dp"
+            android:layout_marginTop="-23dp"
+            app:srcCompat="@drawable/ic_baseline_emoji_events_24" />
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

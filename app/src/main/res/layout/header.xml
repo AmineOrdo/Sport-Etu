@@ -2,9 +2,9 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="200dp"
     android:orientation="vertical"
-    android:background="@drawable/blue_drawer"
+    android:background="@drawable/gradient_background"
     android:padding="20dp">
 
 <TextView
@@ -30,9 +30,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="email"
+        android:textColor="#ffffff"
+        android:paddingBottom="20dp"/>
+
+    <TextView
+
+        android:id="@+id/conn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Connexions: 1000"
+
         android:textColor="#ffffff" />
+    <TextView
 
+        android:id="@+id/nbacti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activités terminées: 1000"
 
+        android:textColor="#ffffff" />
 
 
 </LinearLayout>

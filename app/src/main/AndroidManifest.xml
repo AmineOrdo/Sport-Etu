@@ -3,31 +3,55 @@
     package="com.example.sportetu">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo_image"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo_image_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".dialogActivitychoixSports"></activity>
+        <activity android:name=".password_reset"></activity>
+        <activity android:name=".Authentification"></activity>
+        <activity android:name=".Passerelle" />
+        <activity android:name=".Succes_recycler_Activity" />
+        <activity android:name=".historiqueActivites" />
+        <activity android:name=".dialogActivitychoixSports" />
         <activity android:name=".choix3Sports" />
         <activity android:name=".Inscription" />
-        <activity android:name=".Recommandation"/>
-        <activity android:name=".entrainement.ProgrammationActivity"/>
-        <activity android:name=".entrainement.entrainementActivity"/>
-
-
-        <activity android:name=".Authentification">
-
+        <activity android:name=".Recommandation" />
+        <activity android:name=".entrainement.ProgrammationActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.INSERT" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.APP_CALENDAR" />
+
+                <data android:mimeType="vnd.android.cursor.item/event" />
             </intent-filter>
         </activity>
-        <activity android:name=".IHM" />
+
+        <receiver android:name=".AlarmReceiver" />
+
+        <activity android:name=".entrainement.entrainementActivity" />
+
+        <service
+            android:name=".service"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity android:name=".splashActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".main_activity" />
     </application>
 
 </manifest>

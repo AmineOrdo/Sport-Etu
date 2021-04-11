@@ -8,34 +8,32 @@
 
     <View
         android:id="@+id/ModifierView"
-        android:layout_width="171dp"
-        android:layout_height="180dp"
+        android:layout_width="218dp"
+        android:layout_height="207dp"
         android:background="@color/colorView"
         android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.661" />
+        app:layout_constraintVertical_bias="0.74" />
 
     <View
         android:id="@+id/PlanifierView"
-        android:layout_width="171dp"
-        android:layout_height="180dp"
+        android:layout_width="218dp"
+        android:layout_height="207dp"
         android:background="@color/colorView"
         android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.661" />
+        app:layout_constraintVertical_bias="0.23000002" />
 
     <ImageView
         android:id="@+id/PlanifierImage"
-        android:layout_width="141dp"
-        android:layout_height="143dp"
+        android:layout_width="162dp"
+        android:layout_height="173dp"
         android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/PlanifierView"
         app:layout_constraintEnd_toEndOf="@+id/PlanifierView"
@@ -49,6 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Planifier"
+        android:textColor="@color/colorAccent"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/PlanifierView"
         app:layout_constraintEnd_toEndOf="@+id/PlanifierView"
@@ -56,23 +55,25 @@
 
     <ImageView
         android:id="@+id/ModifierImage"
-        android:layout_width="141dp"
-        android:layout_height="143dp"
+        android:layout_width="162dp"
+        android:layout_height="173dp"
         android:elevation="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/PlanifierView"
+        app:layout_constraintBottom_toBottomOf="@+id/ModifierView"
         app:layout_constraintEnd_toEndOf="@+id/ModifierView"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="@+id/ModifierView"
-        app:layout_constraintTop_toBottomOf="@+id/PlanifierText"
-        app:layout_constraintVertical_bias="0.513"
+        app:layout_constraintTop_toTopOf="@+id/ModifierView"
+        app:layout_constraintVertical_bias="0.558"
         app:srcCompat="@drawable/ic_baseline_history_edu_24" />
 
     <TextView
         android:id="@+id/ModifierText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Modifier"
+        android:text="Consulter"
+        android:textColor="@color/colorAccent"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/PlanifierView"
+        app:layout_constraintBottom_toTopOf="@+id/ModifierView"
         app:layout_constraintEnd_toEndOf="@+id/ModifierView"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="@+id/ModifierView" />
@@ -81,120 +82,14 @@
         android:id="@+id/msgBienvenue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Heureux de te revoir amine"
-        android:textSize="30sp"
+        android:text="Heureux de te revoir"
+        android:textColor="@color/colorAccent"
 
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.050000012" />
-
-    <View
-        android:id="@+id/prochaineView"
-        android:background="@color/colorView"
-        android:layout_width="344dp"
-        android:layout_height="191dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.198"
-        android:elevation="5dp">
-
-    </View>
-
-    <TextView
-        android:id="@+id/ProchaineText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Prochaine activité"
-        android:textSize="18sp"
-        android:elevation="5dp"
-        android:textColor="@color/textcolorblue"
-        app:layout_constraintStart_toStartOf="@+id/prochaineView"
-        app:layout_constraintTop_toTopOf="@+id/prochaineView" />
-
-    <TextView
-        android:id="@+id/heuredepart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:elevation="5dp"
-
-        android:text="11:08"
-        android:textColor="@color/textcolorblue"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/prochaineView"
-        app:layout_constraintEnd_toEndOf="@+id/prochaineView"
-        app:layout_constraintTop_toTopOf="@+id/prochaineView"
-        app:layout_constraintVertical_bias="0.32999998" />
-
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:elevation="5dp"
-        android:text="11/08/20"
-        android:textColor="@color/textcolorblue"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/prochaineView"
-        app:layout_constraintEnd_toEndOf="@+id/prochaineView"
-        app:layout_constraintTop_toTopOf="@+id/prochaineView"
-        app:layout_constraintVertical_bias="0.13999999" />
-
-    <TextView
-        android:id="@+id/Sport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:elevation="5dp"
-        android:text="Football"
-        android:textColor="@color/textcolorblue"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/prochaineView"
-        app:layout_constraintStart_toStartOf="@+id/prochaineView"
-        app:layout_constraintTop_toTopOf="@+id/prochaineView"
-        app:layout_constraintVertical_bias="0.25" />
-
-    <TextView
-        android:id="@+id/nbPoint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:elevation="5dp"
-        android:text="150 points"
-        android:textColor="@color/textcolorblue"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/prochaineView"
-        app:layout_constraintStart_toStartOf="@+id/prochaineView"
-        app:layout_constraintTop_toTopOf="@+id/prochaineView"
-        app:layout_constraintVertical_bias="0.57" />
-
-    <TextView
-        android:id="@+id/duree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:elevation="5dp"
-        android:text="1:20"
-        android:textColor="@color/textcolorblue"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/prochaineView"
-        app:layout_constraintStart_toStartOf="@+id/prochaineView"
-        app:layout_constraintTop_toTopOf="@+id/prochaineView"
-        app:layout_constraintVertical_bias="0.41000003" />
-
-    <ImageButton
-        android:id="@+id/nextModifierActivite"
-        android:layout_width="66dp"
-        android:layout_height="48dp"
-        android:elevation="5dp"
-        android:background="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="@+id/prochaineView"
-        app:layout_constraintEnd_toEndOf="@+id/prochaineView"
-        app:srcCompat="@drawable/ic_baseline_arrow_forward_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

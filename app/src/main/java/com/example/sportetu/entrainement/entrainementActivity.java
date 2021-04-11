@@ -1,8 +1,12 @@
 package com.example.sportetu.entrainement;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,6 +34,11 @@ public class entrainementActivity extends AppCompatActivity {
         String userID;
         userID= mAuth.getCurrentUser().getUid();
 
+        ConstraintLayout constraintLayout = findViewById(R.id.layoutentr);
+        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.start();
 
         RecyclerView recyclerView =findViewById(R.id.RecyclerView_activite_plan);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -46,6 +55,18 @@ public class entrainementActivity extends AppCompatActivity {
         adapter=new AdapterActivite(options);
         recyclerView.setAdapter(adapter);
 
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                adapter.deleteItem(viewHolder.getAdapterPosition());
+            }
+        }).attachToRecyclerView(recyclerView);
     }
 
     @Override

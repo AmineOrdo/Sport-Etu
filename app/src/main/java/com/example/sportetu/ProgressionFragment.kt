@@ -6,9 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_entrainement.view.*
 import kotlinx.android.synthetic.main.fragment_progression.view.*
 import kotlinx.android.synthetic.main.fragment_succes.view.*
+import kotlinx.android.synthetic.main.header.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,6 +35,8 @@ class ProgressionFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
     }
 
     lateinit var mView: View
@@ -41,20 +47,17 @@ class ProgressionFragment : Fragment() {
         // Inflate the layout for this fragment
         mView=inflater.inflate(R.layout.fragment_progression, container, false)
 
-        //voir l'historique des activités/Objectifs de l'user
+        //voir l'historique des activités de l'user
         mView.histoView.setOnClickListener(View.OnClickListener {
             // modifie Authentification par le nom de l'activite que tu veux
-            val intent = Intent(activity, Authentification::class.java)
+            val intent = Intent(activity, historiqueActivites::class.java)
             startActivity(intent)
 
         })
-        //voir les succes
 
-        mView.SuccesView.setOnClickListener(View.OnClickListener {
-            //Pour l'instant succes redirige vers l'activite de recommandation tester
-            val intent = Intent(activity, Recommandation::class.java)
-            startActivity(intent)
-        })
+
+
+
         return mView
     }
 

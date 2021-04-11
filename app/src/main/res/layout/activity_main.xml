@@ -5,7 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sportetu.IHM"
+    tools:context="com.example.sportetu.main_activity"
 
     >
 
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorAccent"
-        tools:context="com.example.sportetu.IHM">
+        tools:context="com.example.sportetu.main_activity">
 
         <FrameLayout
             android:id="@+id/fragment_container"
@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:layout_above="@+id/bottom_navigation"
             android:layout_below="@+id/top_navigation"
-
+            android:background="@drawable/gradient_list"
              />
 
 
@@ -45,7 +45,6 @@
             android:elevation="4dp"
             app:menu="@menu/top_navigation"
             app:title="Sport'ETU"
-
             app:titleMarginStart="150dp"
             app:titleTextColor="@color/textcolor" />
 

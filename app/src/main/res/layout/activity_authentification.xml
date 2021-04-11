@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Authentification"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/gradient_list"
+    android:id="@+id/layoutauth">
 
     <TextView
         android:id="@+id/titre_app"
@@ -39,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="#253695"
+        android:background="#1079A8"
         android:ems="10"
         android:hint="adresse mail"
         android:inputType="textPersonName"
@@ -61,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="#253695"
+        android:background="#1079A8"
         android:ems="10"
         android:hint="mot de passe"
         android:inputType="textPassword"
@@ -112,12 +113,15 @@
     <TextView
         android:id="@+id/mdp_forget"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginEnd="25dp"
+        android:gravity="center"
         android:text="Mot de passe oublié ?"
         android:textColor="#DCDCDC"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.42000002" />
@@ -161,7 +165,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.94" />
 
-
+    <CheckBox
+        android:id="@+id/Remember_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:buttonTint="@color/textcolor"
+        android:scrollbarThumbHorizontal="@color/colorAccent"
+        android:scrollbarThumbVertical="@color/textcolor"
+        android:text="Se souvenir de moi"
+        android:textColor="#DCDCDC"
+        android:textColorHint="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42000002" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,16 +1,21 @@
 package com.example.sportetu
 
+import android.R.attr.mode
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_entrainement.*
-import kotlinx.android.synthetic.main.fragment_entrainement.PlanifierView
-import kotlinx.android.synthetic.main.fragment_entrainement.view.*
-import kotlinx.android.synthetic.main.fragment_succes.*
+import androidx.activity.addCallback
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_succes.view.*
+import kotlinx.android.synthetic.main.header.*
+import java.util.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,6 +31,9 @@ class SuccesFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var TitreList = mutableListOf<String>()
+    private var descriptionList = mutableListOf<String>()
+    private var imageList = mutableListOf<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,18 +54,16 @@ class SuccesFragment : Fragment() {
         // Inflate the layout for this fragment
         mView=inflater.inflate(R.layout.fragment_succes, container, false)
 
-        // modifier objectif
-        mView.ModifierObjectifView.setOnClickListener(View.OnClickListener {
-            // modifie authentification par le nom de l'activite ou tu veux aller
-            val intent = Intent(activity, Authentification::class.java)
-            startActivity(intent)
 
-        })
+
+
         //fixer un objectif
 
         mView.ObjectifView.setOnClickListener(View.OnClickListener {
-            // modifie authentification par le nom de l'activite ou tu veux aller
-            val intent = Intent(activity, Authentification::class.java)
+
+            val intent = Intent(activity, Succes_recycler_Activity::class.java)
+
+
             startActivity(intent)
 
         })
@@ -66,6 +72,7 @@ class SuccesFragment : Fragment() {
 
         return mView
     }
+
 
     companion object {
         /**
