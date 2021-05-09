@@ -24,8 +24,7 @@
         <activity android:name=".activite.dialogActivitychoixSports" />
         <activity android:name=".activite.choix3Sports" />
         <activity android:name=".activite.Inscription" />
-        <activity android:name=".Recommandation" />
-        <activity android:name=".entrainement.programmationActivity">
+        <activity android:name=".activite.programmationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.INSERT" />
 
