@@ -1,4 +1,4 @@
-package com.example.sportetu;
+package com.example.sportetu.activite;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sportetu.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -133,7 +134,7 @@ public void onBackPressed(){
 
                         if(task.isSuccessful()){
                             Toast.makeText(Authentification.this, "Connexion réussie!", Toast.LENGTH_SHORT).show();
-                             startActivity(new Intent(getApplicationContext(),Passerelle.class));
+                             startActivity(new Intent(getApplicationContext(), Passerelle.class));
 
                         }
                         else{

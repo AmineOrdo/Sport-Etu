@@ -5,7 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sportetu.main_activity"
+    tools:context="com.example.sportetu.activite.main_activity"
 
     >
 
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorAccent"
-        tools:context="com.example.sportetu.main_activity">
+        tools:context="com.example.sportetu.activite.main_activity">
 
         <FrameLayout
             android:id="@+id/fragment_container"
@@ -57,7 +57,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/colorPrimaryDark"
-        app:headerLayout="@layout/header"
+        app:headerLayout="@layout/header_drawer"
         app:itemTextColor="@color/textcolor"
         app:itemIconTint="@color/textcolor"
         app:menu="@menu/drawer_navigation"

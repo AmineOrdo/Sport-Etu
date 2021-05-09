@@ -1,12 +1,12 @@
-package com.example.sportetu
+package com.example.sportetu.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sportetu.R
 
 class AdapterSucces (private var titre: List<String>, private var description:List<String>,private var image:List<Int>):
         RecyclerView.Adapter<AdapterSucces.ViewHolder>(){
@@ -21,7 +21,7 @@ class AdapterSucces (private var titre: List<String>, private var description:Li
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v=LayoutInflater.from(parent.context).inflate(R.layout.succes_activity_row,parent,false)
+        val v=LayoutInflater.from(parent.context).inflate(R.layout.container_succes,parent,false)
         return ViewHolder(v)
     }
 

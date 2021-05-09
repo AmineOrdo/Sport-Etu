@@ -1,4 +1,7 @@
-package com.example.sportetu;
+package com.example.sportetu.activite;
+
+import android.graphics.drawable.AnimationDrawable;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,46 +10,47 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.drawable.AnimationDrawable;
-import android.os.Bundle;
-
-import com.example.sportetu.entrainement.AdapterActivite;
-import com.example.sportetu.entrainement.activite;
+import com.example.sportetu.R;
+import com.example.sportetu.adapter.adapterActivite;
+import com.example.sportetu.model.activite;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class historiqueActivites extends AppCompatActivity {
 
-    private AdapterActivite adapter;
-   // @Override
+public class consultationActivity extends AppCompatActivity {
+
+    private adapterActivite adapter;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_historique_activites);
+        setContentView(R.layout.activity_consultation);
 
-        ConstraintLayout constraintLayout = findViewById(R.id.layouthisto);
-        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(2000);
-        animationDrawable.setExitFadeDuration(4000);
-        animationDrawable.start();
 
         FirebaseAuth mAuth= FirebaseAuth.getInstance();
         String userID;
         userID= mAuth.getCurrentUser().getUid();
 
-        RecyclerView recyclerView =findViewById(R.id.RecyclerView_historique);
+        ConstraintLayout constraintLayout = findViewById(R.id.layoutentr);
+        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.start();
+
+        RecyclerView recyclerView =findViewById(R.id.RecyclerView_activite_plan);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Query query = db.collection(userID).whereEqualTo("status", "valide");
+         FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Query query = db.collection(userID).whereEqualTo("status", "planifie");
 
-        FirestoreRecyclerOptions<activite> options= new FirestoreRecyclerOptions.Builder<activite>()
+         FirestoreRecyclerOptions<activite> options= new FirestoreRecyclerOptions.Builder<activite>()
                 .setQuery(query, activite.class)
                 .build();
 
-        adapter=new AdapterActivite(options);
+        adapter=new adapterActivite(options);
         recyclerView.setAdapter(adapter);
+
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
             @Override
@@ -61,7 +65,6 @@ public class historiqueActivites extends AppCompatActivity {
         }).attachToRecyclerView(recyclerView);
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -75,5 +78,6 @@ public class historiqueActivites extends AppCompatActivity {
             adapter.stopListening();
         }
     }
+
 
 }

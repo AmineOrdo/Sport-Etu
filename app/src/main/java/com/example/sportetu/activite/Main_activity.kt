@@ -1,4 +1,4 @@
-package com.example.sportetu
+package com.example.sportetu.activite
 
 import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
@@ -7,12 +7,16 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
+import com.example.sportetu.fragment.ProgressionFragment
+import com.example.sportetu.R
+import com.example.sportetu.fragment.SuccesFragment
+import com.example.sportetu.fragment.EntrainementFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_progression.*
-import kotlinx.android.synthetic.main.header.*
+import kotlinx.android.synthetic.main.header_drawer.*
 
 
 class main_activity : AppCompatActivity()  {
@@ -71,26 +75,10 @@ class main_activity : AppCompatActivity()  {
 
         //afficher les infos du profil de l'utilisateur sur la fenetre
 
-
         var userID: String
 
         userID = mAuth!!.currentUser!!.uid
-        /*
-        val documentReference = mStore.collection(userID).document("profil_utilisateur")
 
-
-
-
-            documentReference.addSnapshotListener(
-                this
-            ) { documentSnapshot, e ->
-                prenom_user?.text = documentSnapshot!!.getString("fPrenom")
-                nom_user?.text = documentSnapshot!!.getString("mNom")
-                email_user?.text = documentSnapshot!!.getString("mEmail")
-
-            }
-
-*/
         val docRef: DocumentReference = mStore.collection(userID).document("profil_utilisateur")
 
         docRef.get().addOnCompleteListener { task ->
@@ -105,8 +93,6 @@ class main_activity : AppCompatActivity()  {
                     conn?.text = "connexions: "+document!!.get("nbconnexions").toString()
                     nbacti?.text ="activités terminées: "+document!!.get("nbActivite").toString()
 
-
-
                 } else {
 
                 }
@@ -117,8 +103,6 @@ class main_activity : AppCompatActivity()  {
 
 
     }
-
-
 
     private fun makeCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {

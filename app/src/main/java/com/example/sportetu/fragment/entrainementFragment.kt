@@ -1,18 +1,15 @@
-package com.example.sportetu
+package com.example.sportetu.fragment
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import androidx.fragment.app.Fragment
+import com.example.sportetu.R
+import com.example.sportetu.activite.programmationActivity
+import com.example.sportetu.activite.consultationActivity
 import kotlinx.android.synthetic.main.fragment_entrainement.view.*
-import kotlinx.android.synthetic.main.fragment_progression.view.*
-import kotlinx.android.synthetic.main.fragment_succes.view.*
-import kotlinx.android.synthetic.main.header.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,10 +18,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ProgressionFragment.newInstance] factory method to
+ * Use the [EntrainementFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ProgressionFragment : Fragment() {
+class EntrainementFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -35,29 +32,29 @@ class ProgressionFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-
-
     }
-
     lateinit var mView: View
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        mView=inflater.inflate(R.layout.fragment_progression, container, false)
+        mView=inflater.inflate(R.layout.fragment_entrainement, container, false)
 
-        //voir l'historique des activités de l'user
-        mView.histoView.setOnClickListener(View.OnClickListener {
-            // modifie Authentification par le nom de l'activite que tu veux
-            val intent = Intent(activity, historiqueActivites::class.java)
+        //Accéder à l'activité pour planifier une activité
+         mView.PlanifierView.setOnClickListener(View.OnClickListener {
+
+             val intent = Intent(activity, programmationActivity::class.java)
+             startActivity(intent)
+
+         })
+        //Accéder à l'activité pour consultation une activité
+
+        mView.ModifierView.setOnClickListener(View.OnClickListener {
+
+            val intent = Intent(activity, consultationActivity::class.java)
             startActivity(intent)
-
         })
-
-
-
-
         return mView
     }
 
@@ -68,12 +65,12 @@ class ProgressionFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment ProgressionFragment.
+         * @return A new instance of fragment EntrainementFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            ProgressionFragment().apply {
+            EntrainementFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

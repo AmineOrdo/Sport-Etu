@@ -1,4 +1,4 @@
-package com.example.sportetu;
+package com.example.sportetu.activite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.sportetu.R;
+import com.example.sportetu.activite.choix3Sports;
 
 public class dialogActivitychoixSports extends AppCompatActivity {
     Button buttonNext;

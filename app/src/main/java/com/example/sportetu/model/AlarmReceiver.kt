@@ -1,4 +1,4 @@
-package com.example.sportetu
+package com.example.sportetu.model
 
 import android.content.BroadcastReceiver
 import android.content.Context

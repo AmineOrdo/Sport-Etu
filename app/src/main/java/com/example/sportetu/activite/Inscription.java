@@ -1,14 +1,9 @@
-package com.example.sportetu;
+package com.example.sportetu.activite;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.NotificationCompat;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -21,17 +16,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.sportetu.entrainement.ProgrammationActivity;
+import com.example.sportetu.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -132,7 +124,7 @@ public class Inscription extends AppCompatActivity {
                             });
 
 
-                            startActivity(new Intent(getApplicationContext(),dialogActivitychoixSports.class));
+                            startActivity(new Intent(getApplicationContext(), dialogActivitychoixSports.class));
                         }else{
                             Toast.makeText(Inscription.this,"une erreur est survenue, veuillez réessayer        "+ task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
@@ -147,32 +139,9 @@ public class Inscription extends AppCompatActivity {
         redirectionLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),Authentification.class));
+                startActivity(new Intent(getApplicationContext(), Authentification.class));
             }
         });
-
-
-/*
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(
-                this
-        )
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Sport'Etu | activité terminée")
-                .setContentText("votre activité est à présent terminée")
-                .setAutoCancel(true);
-
-            Intent intent = new Intent(this,Authentification.class);
-
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-        builder.setContentIntent(pendingIntent);
-
-        NotificationManager notificationManager = (NotificationManager)getSystemService(
-                Context.NOTIFICATION_SERVICE
-        );
-        notificationManager.notify(0,builder.build());
-*/
 
     }
 }

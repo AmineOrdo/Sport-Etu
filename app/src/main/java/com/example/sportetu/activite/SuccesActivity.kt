@@ -1,4 +1,4 @@
-package com.example.sportetu
+package com.example.sportetu.activite
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
@@ -6,12 +6,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sportetu.R
+import com.example.sportetu.adapter.AdapterSucces
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_succes_recycler_.*
 
 
-class Succes_recycler_Activity : AppCompatActivity() {
+class succesActivity : AppCompatActivity() {
     private var TitreList = mutableListOf<String>()
     private var descriptionList = mutableListOf<String>()
     private var imageList = mutableListOf<Int>()
@@ -37,7 +39,7 @@ class Succes_recycler_Activity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         RecyclerView_Succes.layoutManager=LinearLayoutManager(this)
-        RecyclerView_Succes.adapter=AdapterSucces(TitreList, descriptionList, imageList)
+        RecyclerView_Succes.adapter= AdapterSucces(TitreList, descriptionList, imageList)
     }
     private fun addToList(titre: String, description: String, image: Int){
         TitreList.add(titre)

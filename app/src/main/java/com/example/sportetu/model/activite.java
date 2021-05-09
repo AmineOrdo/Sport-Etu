@@ -1,4 +1,4 @@
-package com.example.sportetu.entrainement;
+package com.example.sportetu.model;
 
 public class activite {
     private String nomActivite;

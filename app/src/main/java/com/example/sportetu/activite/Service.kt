@@ -1,4 +1,4 @@
-package com.example.sportetu
+package com.example.sportetu.activite
 
 import android.app.*
 import android.content.Context
@@ -10,7 +10,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import com.example.sportetu.entrainement.ProgrammationActivity
+import com.example.sportetu.R
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
@@ -182,7 +182,7 @@ class service : Service() {
         }
 
         val pendingIntent: PendingIntent =
-            Intent(this, ProgrammationActivity::class.java).let { notificationIntent ->
+            Intent(this, programmationActivity::class.java).let { notificationIntent ->
                 PendingIntent.getActivity(this, 0, notificationIntent, 0)
             }
 

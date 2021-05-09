@@ -1,4 +1,4 @@
-package com.example.sportetu
+package com.example.sportetu.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.sportetu.entrainement.ProgrammationActivity
-import com.example.sportetu.entrainement.entrainementActivity
-import kotlinx.android.synthetic.main.fragment_entrainement.view.*
+import com.example.sportetu.R
+import com.example.sportetu.activite.succesActivity
+import kotlinx.android.synthetic.main.fragment_succes.view.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,13 +18,16 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [EntrainementFragment.newInstance] factory method to
+ * Use the [SuccesFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class EntrainementFragment : Fragment() {
+class SuccesFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var TitreList = mutableListOf<String>()
+    private var descriptionList = mutableListOf<String>()
+    private var imageList = mutableListOf<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +37,8 @@ class EntrainementFragment : Fragment() {
         }
 
 
+
     }
-
-
 
     lateinit var mView: View
     override fun onCreateView(
@@ -43,24 +46,27 @@ class EntrainementFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        mView=inflater.inflate(R.layout.fragment_entrainement, container, false)
+        mView=inflater.inflate(R.layout.fragment_succes, container, false)
 
-        //Accéder à l'activité pour planifier une activité
-         mView.PlanifierView.setOnClickListener(View.OnClickListener {
 
-             val intent = Intent(activity, ProgrammationActivity::class.java)
-             startActivity(intent)
 
-         })
-        //Accéder à l'activité pour modifier une  activité
 
-        mView.ModifierView.setOnClickListener(View.OnClickListener {
+        //fixer un objectif
 
-            val intent = Intent(activity, entrainementActivity::class.java)
+        mView.ObjectifView.setOnClickListener(View.OnClickListener {
+
+            val intent = Intent(activity, succesActivity::class.java)
+
+
             startActivity(intent)
+
         })
+
+
+
         return mView
     }
+
 
     companion object {
         /**
@@ -69,12 +75,12 @@ class EntrainementFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment EntrainementFragment.
+         * @return A new instance of fragment SuccesFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            EntrainementFragment().apply {
+            SuccesFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

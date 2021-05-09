@@ -1,4 +1,4 @@
-package com.example.sportetu.entrainement;
+package com.example.sportetu.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sportetu.R;
+import com.example.sportetu.model.activite;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
-public class AdapterActivite extends FirestoreRecyclerAdapter<activite, AdapterActivite.ActiviteViewHolder> {
+public class adapterActivite extends FirestoreRecyclerAdapter<activite, adapterActivite.ActiviteViewHolder> {
 
     /**
      * Create a new RecyclerView adapter that listens to a Firestore Query.  See {@link
@@ -20,7 +21,7 @@ public class AdapterActivite extends FirestoreRecyclerAdapter<activite, AdapterA
      *
      * @param options
      */
-    public AdapterActivite(@NonNull FirestoreRecyclerOptions<activite> options) {
+    public adapterActivite(@NonNull FirestoreRecyclerOptions<activite> options) {
         super(options);
     }
 
@@ -38,7 +39,7 @@ public class AdapterActivite extends FirestoreRecyclerAdapter<activite, AdapterA
     @NonNull
     @Override
     public ActiviteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.entrainement_activity_row,
+        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.container_activity,
             parent, false);
         return new ActiviteViewHolder(v);
     }

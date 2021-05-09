@@ -1,4 +1,4 @@
-package com.example.sportetu
+package com.example.sportetu.activite
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.text.TextUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.sportetu.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_password_reset.*
 

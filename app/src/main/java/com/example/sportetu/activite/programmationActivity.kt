@@ -1,5 +1,5 @@
 
-  package com.example.sportetu.entrainement
+  package com.example.sportetu.activite
 
 import android.app.DatePickerDialog
 import android.app.PendingIntent
@@ -13,9 +13,7 @@ import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.example.sportetu.main_activity
 import com.example.sportetu.R
-import com.example.sportetu.service
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -26,7 +24,7 @@ import java.util.*
 import kotlin.properties.Delegates
 
 
-  class ProgrammationActivity : AppCompatActivity() {
+  class programmationActivity : AppCompatActivity() {
 
       lateinit var activite:String
       lateinit var date:String
@@ -70,7 +68,7 @@ import kotlin.properties.Delegates
             val rmdTout = (1..2).random()
             val rmdCategorie = (0..5).random()
 
-
+            //algorithme de proposition de sport
             val sportIndividuel = arrayOf("musculation","boxe","judo","natation","athlétisme","cyclisme")
             val sportCollectif = arrayOf("football","basketball","badminton","handball","rugby","baseball")
 
@@ -95,7 +93,7 @@ import kotlin.properties.Delegates
         }
 
 
-
+//choix de la date
         pickTimeBtn.setOnClickListener {
 
             val dpd = DatePickerDialog(

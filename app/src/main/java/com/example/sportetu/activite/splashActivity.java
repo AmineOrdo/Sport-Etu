@@ -1,10 +1,12 @@
-package com.example.sportetu;
+package com.example.sportetu.activite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.sportetu.R;
 
 public class splashActivity extends AppCompatActivity {
 

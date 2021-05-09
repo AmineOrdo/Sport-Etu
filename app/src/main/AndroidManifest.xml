@@ -16,16 +16,16 @@
         android:roundIcon="@mipmap/logo_image_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".password_reset"></activity>
-        <activity android:name=".Authentification"></activity>
-        <activity android:name=".Passerelle" />
-        <activity android:name=".Succes_recycler_Activity" />
-        <activity android:name=".historiqueActivites" />
-        <activity android:name=".dialogActivitychoixSports" />
-        <activity android:name=".choix3Sports" />
-        <activity android:name=".Inscription" />
+        <activity android:name=".activite.password_reset"></activity>
+        <activity android:name=".activite.Authentification"></activity>
+        <activity android:name=".activite.Passerelle" />
+        <activity android:name=".activite.succesActivity" />
+        <activity android:name=".activite.historiqueActivites" />
+        <activity android:name=".activite.dialogActivitychoixSports" />
+        <activity android:name=".activite.choix3Sports" />
+        <activity android:name=".activite.Inscription" />
         <activity android:name=".Recommandation" />
-        <activity android:name=".entrainement.ProgrammationActivity">
+        <activity android:name=".entrainement.programmationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.INSERT" />
 
@@ -35,23 +35,23 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".AlarmReceiver" />
+        <receiver android:name=".model.AlarmReceiver" />
 
-        <activity android:name=".entrainement.entrainementActivity" />
+        <activity android:name=".activite.consultationActivity" />
 
         <service
-            android:name=".service"
+            android:name=".activite.service"
             android:enabled="true"
             android:exported="false" />
 
-        <activity android:name=".splashActivity">
+        <activity android:name=".activite.splashActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
 
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".main_activity" />
+        <activity android:name=".activite.main_activity" />
     </application>
 
 </manifest>
